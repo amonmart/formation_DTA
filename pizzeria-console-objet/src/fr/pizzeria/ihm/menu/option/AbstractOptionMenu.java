@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDaoImp;
 import fr.pizzeria.dao.iPizzaDao;
-import fr.pizzeria.model.Pizza;
 
 public abstract class AbstractOptionMenu {
 	private String libelle;
