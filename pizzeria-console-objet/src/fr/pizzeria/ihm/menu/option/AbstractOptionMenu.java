@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDaoImp;
 import fr.pizzeria.dao.iPizzaDao;
+import fr.pizzeria.exception.*;
 
 public abstract class AbstractOptionMenu {
 	private String libelle;
@@ -17,7 +18,7 @@ public abstract class AbstractOptionMenu {
 		this.sc = sc;
 	}
 	
-	public abstract boolean execute();
+	public abstract boolean execute() throws DaoException;
 	
 	public String getLibelle() {
 		return libelle;

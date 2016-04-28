@@ -3,12 +3,8 @@ package fr.pizzeria.ihm.menu;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDaoImp;
-import fr.pizzeria.ihm.menu.option.AbstractOptionMenu;
-import fr.pizzeria.ihm.menu.option.ListerPizzaOptionMenu;
-import fr.pizzeria.ihm.menu.option.ModifierPizzaOptionMenu;
-import fr.pizzeria.ihm.menu.option.NouvellePizzaOptionMenu;
-import fr.pizzeria.ihm.menu.option.QuitterOptionMenu;
-import fr.pizzeria.ihm.menu.option.SupprimerPizzaOptionMenu;
+import fr.pizzeria.exception.*;
+import fr.pizzeria.ihm.menu.option.*;
 
 public class Menu {
 	private static final String ADMINISTRATION_PIZZERIA_TITRE = "Administration Pizzeria";
@@ -40,7 +36,12 @@ public class Menu {
 				System.out.println(i + " . " + opt.getLibelle());
 			}
 			int saisie = sc.nextInt();
-			continuer = options[saisie].execute();
+			try {
+				continuer = options[saisie].execute();
+			} catch (DaoException e){
+				e.printStackTrace();
+			}
+			
 		}
 	}
 	

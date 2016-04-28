@@ -3,6 +3,7 @@ package fr.pizzeria.ihm.menu.option;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDaoImp;
+import fr.pizzeria.exception.*;
 
 public class SupprimerPizzaOptionMenu extends AbstractOptionMenu{
 
@@ -15,12 +16,13 @@ public class SupprimerPizzaOptionMenu extends AbstractOptionMenu{
 	}
 
 	@Override
-	public boolean execute() {
+	public boolean execute() throws DaoException {
 		System.out.println("Menu supprimer une pizza");
 		listerPizza.execute();
 		System.out.println("Saisir le code de la pizza à supprimer");
 		String codePizza = sc.next();
 		pizzaDao.deletePizza(codePizza);
+
 		return true;
 	}
 

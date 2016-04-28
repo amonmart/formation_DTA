@@ -3,6 +3,7 @@ package fr.pizzeria.ihm.menu.option;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDaoImp;
+import fr.pizzeria.exception.*;
 import fr.pizzeria.model.Pizza;
 
 public class NouvellePizzaOptionMenu extends AbstractOptionMenu {
@@ -16,10 +17,13 @@ public class NouvellePizzaOptionMenu extends AbstractOptionMenu {
 	}
 
 	@Override
-	public boolean execute() {
+	public boolean execute() throws SavePizzaException {
 		System.out.println("Menu ajouter une pizza");
 		Pizza p = saisie.saisirDonneesPizza(sc);
 		this.pizzaDao.savePizza(p);
+
+
+		
 		
 		return true;
 	}
