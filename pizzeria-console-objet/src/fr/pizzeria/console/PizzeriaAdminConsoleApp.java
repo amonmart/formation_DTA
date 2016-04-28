@@ -38,7 +38,6 @@ public class PizzeriaAdminConsoleApp {
 			afficherMenuPrincipal();
 
 			saisie = sc.nextInt();
-
 			switch (saisie) {
 			case 1:
 				listerPizzas(pizzas);
