@@ -20,7 +20,7 @@ public class ListerPizzaOptionMenu extends AbstractOptionMenu {
 		List<Pizza> pizzas = this.pizzaDao.findAllPizza();
 		for ( Pizza p : pizzas ){
 			if ((p != null) && (p.code != null)) {
-				System.out.println(p.code + " --> " + p.nom + " (" + p.prix + " €)");
+				System.out.println(p.code + " --> " + p.nom + " (" + p.prix + " €) - " + p.categorie.getLabelle() + " -");
 			}
 		}
 		return true;

@@ -1,4 +1,4 @@
-package fr.pizzeria.console;
+/*package fr.pizzeria.console;
 
 
 import java.util.Scanner;
@@ -153,4 +153,4 @@ public class PizzeriaAdminConsoleApp {
 		return p;
 	}
 
-}
+}*/

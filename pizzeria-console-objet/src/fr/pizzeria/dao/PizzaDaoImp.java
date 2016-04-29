@@ -3,6 +3,7 @@ package fr.pizzeria.dao;
 import java.util.*;
 
 import fr.pizzeria.exception.*;
+import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoImp implements iPizzaDao {
@@ -10,14 +11,14 @@ public class PizzaDaoImp implements iPizzaDao {
 	private Map<String,Pizza> pizzas = new HashMap<String,Pizza>();
 	
 	public PizzaDaoImp() {
-		pizzas.put("PEP", new Pizza("PEP", "Pépéroni", 12.50));
-		pizzas.put("MAR", new Pizza("MAR", "Margherita", 14.00));
-		pizzas.put("REI", new Pizza("REI", "La Reine", 11.50));
-		pizzas.put("FRO", new Pizza( "FRO", "La 4 fromages", 12.00 ));
-		pizzas.put("CAN", new Pizza("CAN", "La cannibale", 12.50));
-		pizzas.put("SAV", new Pizza("SAV", "La savoyarde", 13.00));
-		pizzas.put("ORI", new Pizza("ORI", "L'orientale", 13.50 ));
-		pizzas.put("IND", new Pizza( "IND", "L'indienne", 14.00 ));
+		pizzas.put("PEP", new Pizza("PEP", "Pépéroni", 12.50, CategoriePizza.VIANDE));
+		pizzas.put("MAR", new Pizza("MAR", "Margherita", 14.00, CategoriePizza.VIANDE));
+		pizzas.put("REI", new Pizza("REI", "La Reine", 11.50, CategoriePizza.VIANDE));
+		pizzas.put("FRO", new Pizza( "FRO", "La 4 fromages", 12.00, CategoriePizza.SANS_VIANDE));
+		pizzas.put("CAN", new Pizza("CAN", "La cannibale", 12.50, CategoriePizza.SANS_VIANDE));
+		pizzas.put("SAV", new Pizza("SAV", "La savoyarde", 13.00, CategoriePizza.POISSON));
+		pizzas.put("ORI", new Pizza("ORI", "L'orientale", 13.50, CategoriePizza.POISSON ));
+		pizzas.put("IND", new Pizza( "IND", "L'indienne", 14.00, CategoriePizza.VIANDE ));
 	}
 
 	@Override

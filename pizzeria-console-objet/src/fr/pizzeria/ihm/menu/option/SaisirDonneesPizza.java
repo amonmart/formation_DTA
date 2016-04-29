@@ -2,7 +2,7 @@ package fr.pizzeria.ihm.menu.option;
 
 import java.util.Scanner;
 
-import fr.pizzeria.model.Pizza;
+import fr.pizzeria.model.*;
 
 public class SaisirDonneesPizza {
 	
@@ -14,7 +14,12 @@ public class SaisirDonneesPizza {
 		String newNom = sc.next();
 		System.out.println("Veuillez saisir le prix");
 		double newPrix = sc.nextDouble();
-		p.modifier(newCode, newNom, newPrix);
+		System.out.println("Veuillez saisir la catégorie de la pizza");
+		for(CategoriePizza categories : CategoriePizza.values()){
+			System.out.println(categories.getNum() + " . " + categories.getLabelle());
+		}
+		int newCategorie = sc.nextInt();
+		p.modifier(newCode, newNom, newPrix, CategoriePizza.getCategorieByInt(newCategorie));
 		return p;
 	}
 
