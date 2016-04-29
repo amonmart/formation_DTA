@@ -7,6 +7,19 @@ public class Pizza {
 	public double prix;
 	public static int nbPizza; 
 
+	public Pizza() {
+		super();
+		Pizza.nbPizza++;
+	}
+	
+	public Pizza(String code, String nom, double prix) {
+		super();
+		this.code = code;
+		this.nom = nom;
+		this.prix = prix;
+		Pizza.nbPizza++;
+	}
+
 	public void creer(int id, String code, String nom, double prix){
 		this.id = id;
 		this.code = code;

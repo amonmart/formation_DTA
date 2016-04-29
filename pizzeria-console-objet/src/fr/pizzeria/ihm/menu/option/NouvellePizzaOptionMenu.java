@@ -21,9 +21,6 @@ public class NouvellePizzaOptionMenu extends AbstractOptionMenu {
 		System.out.println("Menu ajouter une pizza");
 		Pizza p = saisie.saisirDonneesPizza(sc);
 		this.pizzaDao.savePizza(p);
-
-
-		
 		
 		return true;
 	}

@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm.menu.option;
 
+import java.util.List;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDaoImp;
@@ -16,7 +17,7 @@ public class ListerPizzaOptionMenu extends AbstractOptionMenu {
 	@Override
 	public boolean execute() {
 		System.out.println("Lister Pizza Menu");
-		Pizza[] pizzas = this.pizzaDao.findAllPizza();
+		List<Pizza> pizzas = this.pizzaDao.findAllPizza();
 		for ( Pizza p : pizzas ){
 			if ((p != null) && (p.code != null)) {
 				System.out.println(p.code + " --> " + p.nom + " (" + p.prix + " €)");
