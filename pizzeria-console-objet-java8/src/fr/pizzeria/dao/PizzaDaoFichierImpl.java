@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,13 +15,13 @@ import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoFichierImpl implements IPizzaDao {
 	
-	private Path repertoire = Paths.get("data");
+	private static final String REPERTOIRE_DATA = "data";
 
 	@Override
 	public List<Pizza> findAllPizzas() throws DaoException {
 		
 		try {
-			return Files.list(repertoire)
+			return Files.list(Paths.get(REPERTOIRE_DATA))
 				.map(path -> {
 					Pizza p = new Pizza();
 					p.setCode(path.getFileName().toString().replaceAll(".txt", ""));
@@ -40,11 +42,20 @@ public class PizzaDaoFichierImpl implements IPizzaDao {
 			throw new DaoException(e);
 		}
 	}
+	
+	private String convertPizzaToString(Pizza p) {
+		return p.getNom() + ";" + p.getPrix() + ";" + p.getCategorie().name();
+	}
+	
 
 	@Override
 	public void savePizza(Pizza newPizza) throws DaoException {
-		// TODO Auto-generated method stub
-		
+		try {
+			Path nouveauFichier = Paths.get(REPERTOIRE_DATA + "/" + newPizza.getCode() + ".txt");
+			Files.write(nouveauFichier, Arrays.asList(convertPizzaToString(newPizza)), StandardOpenOption.CREATE_NEW);
+		} catch (IOException e) {
+			throw new DaoException(e);
+		}
 	}
 
 	@Override
