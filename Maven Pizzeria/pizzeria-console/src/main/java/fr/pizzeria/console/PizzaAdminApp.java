@@ -14,8 +14,6 @@ public class PizzaAdminApp {
 	
 	public static void main(String[] args) throws IOException {
 		
-		la grosse erreure de compile !
-		
 		ResourceBundle bundle = ResourceBundle.getBundle("application");
 		String confString = bundle.getString("dao.impl");
 		Integer daoImplConf = Integer.valueOf(confString);
