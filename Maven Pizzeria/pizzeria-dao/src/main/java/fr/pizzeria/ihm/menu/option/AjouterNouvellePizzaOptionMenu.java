@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm.menu.option;
 
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -48,6 +49,9 @@ public class AjouterNouvellePizzaOptionMenu extends AbstractOptionMenu {
 			System.err.println("Input " + sc.next() + " n'est pas un nombre");
 		} catch (DaoException e) {
 			System.err.println("Echec création de pizza");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		return true;

@@ -25,7 +25,15 @@ public class Pizza {
 
 	public Pizza() {
 	}
-
+	
+	public Pizza(String code, String nom, double prix) {
+		this();
+		this.code = code;
+		this.nom = nom;
+		this.prix = prix;
+		this.categorie = CategoriePizza.VIANDE;
+	}
+	
 	public Pizza(String code, String nom, double prix, CategoriePizza cat) {
 		this();
 		this.code = code;

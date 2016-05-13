@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm.menu.option;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.IPizzaDao;
@@ -26,6 +27,9 @@ public class SupprimerPizzaOptionMenu extends AbstractOptionMenu {
 			System.out.println("Pizza supprimée");
 		} catch (DaoException e) {
 			System.err.println("Echec suppression pizza");
+		} catch (SQLException e) {
+			System.err.println("Erreur SQL");
+			e.printStackTrace();
 		}
 
 		return true;

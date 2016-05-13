@@ -7,12 +7,20 @@ import java.util.Scanner;
 import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.PizzaDaoFichierImpl;
 import fr.pizzeria.dao.PizzaDaoImpl;
+import fr.pizzeria.dao.PizzaDaoJDBCImpl;
 import fr.pizzeria.ihm.menu.Menu;
 
 public class PizzaAdminApp {
 	static IPizzaDao daoImpl;
 	
 	public static void main(String[] args) throws IOException {
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		ResourceBundle bundle = ResourceBundle.getBundle("application");
 		String confString = bundle.getString("dao.impl");
@@ -26,6 +34,8 @@ public class PizzaAdminApp {
 			case(1):
 				daoImpl = new PizzaDaoFichierImpl();
 				break;
+			case(2):
+				daoImpl = new PizzaDaoJDBCImpl();
 			}
 			Menu menu = new Menu(sc, daoImpl);
 			menu.afficher();

@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm.menu.option;
 
+import java.sql.SQLException;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
@@ -25,6 +26,9 @@ public class AfficherPizzaTarifPlusEleveOptionMenu extends AbstractOptionMenu {
 				.collect(Collectors.maxBy(Comparator.comparing(Pizza::getPrix)))
 				.ifPresent(System.out::println);
 		} catch (DaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

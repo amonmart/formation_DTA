@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm.menu.option;
 
+import java.sql.SQLException;
 import java.util.Comparator;
 
 import fr.pizzeria.dao.IPizzaDao;
@@ -23,6 +24,9 @@ public class ListerPizzaOptionMenu extends AbstractOptionMenu {
 				.sorted(Comparator.comparing(Pizza::getCode))
 				.forEach(System.out::println);
 		} catch (DaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

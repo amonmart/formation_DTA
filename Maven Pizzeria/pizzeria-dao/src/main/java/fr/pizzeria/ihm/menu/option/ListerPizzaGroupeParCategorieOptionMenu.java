@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm.menu.option;
 
+import java.sql.SQLException;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
@@ -30,6 +31,9 @@ public class ListerPizzaGroupeParCategorieOptionMenu extends AbstractOptionMenu 
 						.forEach(System.out::println);
 				});
 		} catch (DaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
