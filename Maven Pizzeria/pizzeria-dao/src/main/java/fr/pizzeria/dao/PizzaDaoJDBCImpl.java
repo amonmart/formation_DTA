@@ -9,12 +9,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.plaf.ListUI;
+
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.exception.DeletePizzaException;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
+
+import org.apache.commons.collections4.ListUtils;
 
 public class PizzaDaoJDBCImpl implements IPizzaDao {
 
@@ -97,5 +101,24 @@ public class PizzaDaoJDBCImpl implements IPizzaDao {
 		statement.close();
 		connection.close();
 	}
-
+	
+	public void importPizza() throws DaoException, SQLException{
+		/*
+		IPizzaDao pizzaDaoFichier = new PizzaDaoFichierImpl();
+		List<Pizza> pizzas = new ArrayList<>();
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pizzeria", "antonin","antonin123");
+		connection.setAutoCommit(false);
+		
+		ListUtils.partition(pizzas, 3).forEach();
+		statement.setString(1, updatePizza.getCode());
+		statement.setString(2, updatePizza.getNom());
+		statement.setDouble(3, updatePizza.getPrix());
+		statement.setString(4, updatePizza.getCategorie().getLibelle().toUpperCase());
+		pizzas = pizzaDaoFichier.findAllPizzas();
+		*/
+		
+		
+		
+	}
+	 
 }

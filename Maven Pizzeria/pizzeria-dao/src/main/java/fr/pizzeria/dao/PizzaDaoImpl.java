@@ -59,4 +59,10 @@ public class PizzaDaoImpl implements IPizzaDao {
 		pizzas.remove(codePizza);
 	}
 
+	@Override
+	public void importPizza() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
