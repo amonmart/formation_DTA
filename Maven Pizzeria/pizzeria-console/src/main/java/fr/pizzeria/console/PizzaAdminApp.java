@@ -4,10 +4,15 @@ import java.io.IOException;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+import java.util.logging.Level;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.PizzaDaoFichierImpl;
 import fr.pizzeria.dao.PizzaDaoImpl;
 import fr.pizzeria.dao.PizzaDaoJDBCImpl;
+import fr.pizzeria.dao.PizzaDaoJpa;
 import fr.pizzeria.ihm.menu.Menu;
 
 public class PizzaAdminApp {
@@ -39,6 +44,11 @@ public class PizzaAdminApp {
 				break;
 			case 2:
 				daoImpl = new PizzaDaoJDBCImpl();
+				break;
+			case 3:
+				java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
+				EntityManagerFactory emf = Persistence.createEntityManagerFactory("pizzeria-console");
+				daoImpl = new PizzaDaoJpa(emf);
 				break;
 			default:
 				daoImpl = new PizzaDaoImpl();

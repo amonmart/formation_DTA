@@ -7,17 +7,28 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+@Entity
 public class Pizza {
-
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	@ToString private String code;
 	@ToString(uppercase = true) private String nom;
 	@ToString 
 	private double prix;
 	@ToString 
+	@Enumerated(EnumType.STRING)
 	private CategoriePizza categorie;
 	
 	
