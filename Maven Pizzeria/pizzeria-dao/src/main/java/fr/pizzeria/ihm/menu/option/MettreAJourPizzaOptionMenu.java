@@ -18,7 +18,7 @@ public class MettreAJourPizzaOptionMenu extends AbstractOptionMenu {
 	public MettreAJourPizzaOptionMenu(Scanner scanner, IPizzaDao pizzaDao) {
 		super(MAJ_PIZZA_LIBELLE_MENU, pizzaDao, scanner);
 	}
-
+	
 	@Override
 	public boolean execute() {
 
@@ -33,7 +33,7 @@ public class MettreAJourPizzaOptionMenu extends AbstractOptionMenu {
 		System.out.println("Veuillez saisir le nouveau nom (sans espace)");
 		updatePizza.setNom(sc.next());
 		System.out.println("Veuillez saisir le prix");
-		updatePizza.setPrix(sc.nextDouble());
+		updatePizza.setPrix(sc.nextBigDecimal());
 		System.out.println("Veuillez saisir la catégorie");
 		CategoriePizza[] categoriePizzas = CategoriePizza.values();
 		Arrays.asList(categoriePizzas)

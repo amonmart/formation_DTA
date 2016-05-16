@@ -31,7 +31,7 @@ public class PizzaAdminApp {
 		ResourceBundle bundle = ResourceBundle.getBundle("application");
 		String confString = bundle.getString("dao.impl");
 		Integer daoImplConf = Integer.valueOf(confString);
-
+		
 		try (Scanner sc = new Scanner(System.in)) {
 			switch (daoImplConf){
 			case 0:

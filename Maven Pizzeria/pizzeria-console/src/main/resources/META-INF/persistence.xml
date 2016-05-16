@@ -8,6 +8,7 @@
 			<property name="javax.persistence.jdbc.user" value="antonin"/>
 			<property name="javax.persistence.jdbc.password" value="antonin123"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
 		</properties>
 	</persistence-unit>
 </persistence>

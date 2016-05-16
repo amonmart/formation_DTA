@@ -1,6 +1,7 @@
 package fr.pizzeria.model;
 
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,22 +23,21 @@ public class Pizza {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	@ToString private String code;
 	@ToString(uppercase = true) private String nom;
 	@ToString 
-	private double prix;
+	private BigDecimal prix;
 	@ToString 
 	@Enumerated(EnumType.STRING)
 	private CategoriePizza categorie;
-	
 	
 	public static int nbPizzas;
 
 	public Pizza() {
 	}
 	
-	public Pizza(String code, String nom, double prix) {
+	public Pizza(String code, String nom, BigDecimal prix) {
 		this();
 		this.code = code;
 		this.nom = nom;
@@ -45,7 +45,7 @@ public class Pizza {
 		this.categorie = CategoriePizza.VIANDE;
 	}
 	
-	public Pizza(String code, String nom, double prix, CategoriePizza cat) {
+	public Pizza(String code, String nom, BigDecimal prix, CategoriePizza cat) {
 		this();
 		this.code = code;
 		this.nom = nom;
@@ -53,11 +53,11 @@ public class Pizza {
 		this.categorie = cat;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -81,16 +81,16 @@ public class Pizza {
 	 * Utiliser plutôt getNouveauPrix()
 	 * @return
 	 */
-	public double getPrix() {
+	public BigDecimal getPrix() {
 		return prix;
 	}
 	
-	public double getNouveauPrix() {
+	public BigDecimal getNouveauPrix() {
 		// super algo
 		return prix;
 	}
 
-	public void setPrix(double prix) {
+	public void setPrix(BigDecimal prix) {
 		this.prix = prix;
 	}
 
