@@ -8,11 +8,11 @@ import java.util.logging.Level;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import fr.pizzeria.dao.IPizzaDao;
-import fr.pizzeria.dao.PizzaDaoFichierImpl;
-import fr.pizzeria.dao.PizzaDaoImpl;
-import fr.pizzeria.dao.PizzaDaoJDBCImpl;
-import fr.pizzeria.dao.PizzaDaoJpa;
+import fr.pizzeria.dao.pizza.IPizzaDao;
+import fr.pizzeria.dao.pizza.PizzaDaoFichierImpl;
+import fr.pizzeria.dao.pizza.PizzaDaoImpl;
+import fr.pizzeria.dao.pizza.PizzaDaoJDBCImpl;
+import fr.pizzeria.dao.pizza.PizzaDaoJpa;
 import fr.pizzeria.ihm.menu.Menu;
 
 public class PizzaAdminApp {

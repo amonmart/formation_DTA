@@ -83,5 +83,6 @@
 		<module>pizzeria-dao</module>
 		<module>pizzeria-model</module>
 		<module>pizzeria-console</module>
+		<module>Pizzeria-console-client</module>
 	</modules>
 </project>

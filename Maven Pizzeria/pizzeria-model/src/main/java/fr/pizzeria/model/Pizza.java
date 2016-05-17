@@ -31,12 +31,13 @@ public class Pizza {
 	@ToString 
 	@Enumerated(EnumType.STRING)
 	private CategoriePizza categorie;
+	private String urlImage;
 	
 	public static int nbPizzas;
 
 	public Pizza() {
 	}
-	
+
 	public Pizza(String code, String nom, BigDecimal prix) {
 		this();
 		this.code = code;
@@ -178,6 +179,14 @@ public class Pizza {
 				.append(prix, other.prix)
 				.isEquals();
 		}
+	
+	public String getUrlImage() {
+		return urlImage;
+	}
+
+	public void setUrlImage(String urlImage) {
+		this.urlImage = urlImage;
+	}
 				/*
 		if (categorie != other.categorie)
 			return false;
@@ -195,34 +204,6 @@ public class Pizza {
 			return false;
 		return true;
 		*/
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
 	
 
 }
