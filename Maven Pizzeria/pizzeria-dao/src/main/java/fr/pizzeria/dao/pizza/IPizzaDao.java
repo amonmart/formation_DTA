@@ -8,6 +8,7 @@ import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.Pizza;
 
 public interface IPizzaDao {
+	IPizzaDao IMPLEMENTATION = new PizzaDaoImpl();
 	
 	List<Pizza> findAllPizzas() throws DaoException, SQLException;
 	void savePizza(Pizza newPizza) throws DaoException, SQLException;

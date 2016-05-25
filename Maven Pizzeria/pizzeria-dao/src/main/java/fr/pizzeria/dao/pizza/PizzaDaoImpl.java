@@ -17,8 +17,10 @@ import fr.pizzeria.model.Pizza;
 public class PizzaDaoImpl implements IPizzaDao {
 	
 	private Map<String, Pizza> pizzas = new HashMap<String, Pizza>();
-
+	
+	
 	public PizzaDaoImpl() {
+		
 		pizzas.put("PEP", new Pizza("PEP", "Pépéroni", new BigDecimal("12.50"), CategoriePizza.VIANDE));
 		pizzas.put("MAR", new Pizza("MAR", "Margherita", new BigDecimal("14"),  CategoriePizza.SANS_VIANDE));
 		pizzas.put("REI", new Pizza("REI", "La Reine", new BigDecimal("13"), CategoriePizza.VIANDE));
@@ -30,11 +32,25 @@ public class PizzaDaoImpl implements IPizzaDao {
 		pizzas.put("SAU", new Pizza("SAU", "La Saumonéta", new BigDecimal("14"), CategoriePizza.POISSON));
 	}
 	
+	
+	
 	@Override
 	public List<Pizza> findAllPizzas() {
 		return new ArrayList<Pizza>(pizzas.values());
 	}
-
+	
+	@Override
+	public Pizza findPizza(String codePizza) {
+		List<Pizza> pizzas = findAllPizzas();
+		Pizza retour = new Pizza();
+		for (Pizza p : pizzas){
+			if (p.getCode().equals(codePizza)){
+				retour = p;
+			}
+		}
+		return retour;
+	}
+	
 	@Override
 	public void savePizza(Pizza newPizza) throws DaoException {
 		if(pizzas.containsKey(newPizza.getCode())) {
@@ -64,12 +80,6 @@ public class PizzaDaoImpl implements IPizzaDao {
 	public void importPizza() {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public Pizza findPizza(String code) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
