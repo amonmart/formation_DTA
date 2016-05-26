@@ -28,8 +28,7 @@ public class EditerPizzaController extends HttpServlet {
 			Pizza pizza = pizzaDao.findPizza(code);
 			req.setAttribute("pizza", pizza);
 			
-			rqd.forward(req, resp);
-		
+			rqd.forward(req, resp); 
 	}
 	
 	@Override
