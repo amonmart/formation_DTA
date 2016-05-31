@@ -12,9 +12,13 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.Pizza;
 
+@Component
 public class PizzaDaoHTTP implements IPizzaDao {
 	private Client client = ClientBuilder.newClient();
 	private WebTarget target = client.target("http://localhost:8080/pizzeria-admin-app");

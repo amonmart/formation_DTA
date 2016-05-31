@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.pizzeria.admin.metier.PizzaService;
 import fr.pizzeria.dao.pizza.IPizzaDao;
-import fr.pizzeria.dao.pizza.PizzaDaoImpl;
+import fr.pizzeria.dao.pizza.PizzaDaoMemoire;
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.Pizza;
 

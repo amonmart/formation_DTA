@@ -11,6 +11,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.apache.commons.collections4.ListUtils;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.exception.DeletePizzaException;
@@ -19,12 +21,13 @@ import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
-public class PizzaDaoImpl implements IPizzaDao {
+@Component
+public class PizzaDaoMemoire implements IPizzaDao {
 	
 	private Map<String, Pizza> pizzas = new HashMap<String, Pizza>();
 	
 	
-	public PizzaDaoImpl() {
+	public PizzaDaoMemoire() {
 		
 		pizzas.put("PEP", new Pizza("PEP", "Pépéroni", new BigDecimal("12.50"), CategoriePizza.VIANDE));
 		pizzas.put("MAR", new Pizza("MAR", "Margherita", new BigDecimal("14"),  CategoriePizza.SANS_VIANDE));

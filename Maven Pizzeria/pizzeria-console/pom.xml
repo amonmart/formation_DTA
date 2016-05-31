@@ -10,6 +10,10 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.glassfish.jersey.core</groupId>
 			<artifactId>jersey-client</artifactId>
 			<scope>compile</scope>
@@ -30,10 +34,10 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-    <groupId>org.glassfish.jersey.media</groupId>
-    <artifactId>jersey-media-json-jackson</artifactId>
-    <version>2.22</version>
-</dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>2.22</version>
+		</dependency>
 		<!-- http://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
 		<dependency>
 			<groupId>org.hibernate</groupId>

@@ -10,7 +10,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.plaf.ListUI;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.exception.DeletePizzaException;
@@ -19,9 +20,8 @@ import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
-import org.apache.commons.collections4.ListUtils;
-
-public class PizzaDaoJDBCImpl implements IPizzaDao {
+@Component
+public class PizzaDaoJDBC implements IPizzaDao {
 
 	@Override
 	public List<Pizza> findAllPizzas() throws SQLException {

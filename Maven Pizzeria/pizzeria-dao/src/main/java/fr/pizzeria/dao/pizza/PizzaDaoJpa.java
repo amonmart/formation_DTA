@@ -16,11 +16,14 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import org.apache.commons.collections4.ListUtils;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
+@Component
 public class PizzaDaoJpa implements IPizzaDao {
 	private EntityManagerFactory emf;
 	private static final String REPERTOIRE_DATA = "data";

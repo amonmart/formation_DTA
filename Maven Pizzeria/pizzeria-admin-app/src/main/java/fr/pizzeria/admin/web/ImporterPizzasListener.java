@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSessionListener;
 
 import fr.pizzeria.admin.metier.PizzaService;
 import fr.pizzeria.dao.pizza.IPizzaDao;
-import fr.pizzeria.dao.pizza.PizzaDaoImpl;
+import fr.pizzeria.dao.pizza.PizzaDaoMemoire;
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.Pizza;
 
@@ -28,7 +28,7 @@ public class ImporterPizzasListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent contextEvent) {
-		IPizzaDao pizzaDao = new PizzaDaoImpl();
+		IPizzaDao pizzaDao = new PizzaDaoMemoire();
 		try {
 			List<Pizza> pizzas = pizzaDao.findAllPizzas();
 			for (Pizza p : pizzas){

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="entityManagerFactory" class="javax.persistence.Persistence" factory-method="createEntityManagerFactory">
+		<constructor-arg value="pizzeria-console" />
+	</bean>
+	<bean id="factoryDao" class="fr.pizzeria.dao.FactoryDaoJPA">
+		<constructor-arg ref="entityManagerFactory" />
+	</bean>
+</beans>
