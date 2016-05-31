@@ -28,7 +28,7 @@
 				<form action="<%=request.getContextPath()%>/login" method="post">
 					<fieldset>
 						<!-- Form Name -->
-						<legend>Editer Pizza</legend>
+						<legend>Identification</legend>
 
 						<!-- Text input-->
 						<div class="form-group">
@@ -59,10 +59,5 @@
 				</form>
 			</div>
 		</div>
-
-		<footer class="container-fluid">
-			<p>Footer Text</p>
-		</footer>
-
-</body>
+	</body>
 </html>

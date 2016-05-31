@@ -37,6 +37,8 @@ public class FiltreLogin implements Filter {
 		} else {
 			srvResponse.sendRedirect(srvRequest.getContextPath()+"/login");
 		}
+		
+		//chain.doFilter(request, response);
 	}
 
 	@Override

@@ -16,9 +16,6 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<%
-	Pizza pizza = (Pizza) request.getAttribute("pizza");
-%>
 </head>
 <body>
 	<%@ include file="header.jsp"%>
@@ -70,9 +67,5 @@
 				</form>
 			</div>
 		</div>
-
-		<footer class="container-fluid">
-			<p>Footer Text</p>
-		</footer>
 </body>
 </html>

@@ -1,9 +1,8 @@
 package fr.pizzeria.admin.web;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -20,20 +19,12 @@ import fr.pizzeria.dao.pizza.PizzaDaoImpl;
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.Pizza;
 
-@WebServlet("/pizzas/list")
-public class ListerPizzaController extends HttpServlet {
-	@Inject private PizzaService pizzaService;
+@WebServlet("/accueil")
+public class AccueillirController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-			try {
-				List<Pizza> listePizza = pizzaService.findAllPizzas();
-				req.setAttribute("listePizza", listePizza);
-				RequestDispatcher rqd = this.getServletContext().getRequestDispatcher("/WEB-INF/views/pizzas/listerPizzas.jsp");
-				rqd.forward(req, resp);
-			} catch (DaoException | SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	}
 
+			RequestDispatcher rqd = this.getServletContext().getRequestDispatcher("/WEB-INF/views/accueil/accueil.jsp");
+			rqd.forward(req, resp);
+	}
 }

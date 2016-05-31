@@ -78,16 +78,7 @@ public class Pizza {
 		this.nom = nom;
 	}
 
-	/**
-	 * Utiliser plutôt getNouveauPrix()
-	 * @return
-	 */
 	public BigDecimal getPrix() {
-		return prix;
-	}
-	
-	public BigDecimal getNouveauPrix() {
-		// super algo
 		return prix;
 	}
 
