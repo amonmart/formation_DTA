@@ -11,7 +11,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import fr.pizzeria.ihm.menu.Menu;
 
 public class PizzaAdminApp {
-	
 	private PizzaAdminApp() {
 	}
 
@@ -27,7 +26,7 @@ public class PizzaAdminApp {
 		ResourceBundle bundle = ResourceBundle.getBundle("application");
 		String confString = bundle.getString("dao.impl");
 		
-		try(AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(PizzeriaAppSpringConfig.class)){
+		try(AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(PizzeriaAppSpringConfigJpaData.class)){
 			Menu menu = context.getBean(Menu.class);
 			menu.afficher();
 		}

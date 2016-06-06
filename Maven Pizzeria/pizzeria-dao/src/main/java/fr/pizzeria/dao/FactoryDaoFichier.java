@@ -1,23 +1,21 @@
 package fr.pizzeria.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import fr.pizzeria.dao.client.ClientDaoImpl;
 import fr.pizzeria.dao.client.IClientDao;
 import fr.pizzeria.dao.pizza.IPizzaDao;
-import fr.pizzeria.dao.pizza.PizzaDaoFichierImpl;
 
 @Repository
 public class FactoryDaoFichier implements IFactoryDao {
 	
-	public FactoryDaoFichier() {
-		// TODO Auto-generated constructor stub
-	}
+	@Autowired @Qualifier("pizzaDaoFichierImpl") private IPizzaDao pizzaDao;
 
 	@Override
 	public IPizzaDao getPizzaDao() {
-		return new PizzaDaoFichierImpl();
+		return pizzaDao;
 	}
 
 	@Override

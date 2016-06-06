@@ -14,22 +14,23 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.ws.rs.ext.ParamConverter.Lazy;
 
 import org.apache.commons.collections4.ListUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
-@Component
+@Repository
+@Transactional
 public class PizzaDaoJpa implements IPizzaDao {
 	private EntityManagerFactory emf;
 	private static final String REPERTOIRE_DATA = "data";
-
-	public PizzaDaoJpa() {
-	}
 
 	public PizzaDaoJpa(EntityManagerFactory em) {
 		this.emf = em;
@@ -85,8 +86,7 @@ public class PizzaDaoJpa implements IPizzaDao {
 	}
 
 	@Override
-	public void importPizza() throws DaoException, SQLException {
-		List<Pizza> pizzas;
+	public void importPizza(List<Pizza> pizzas) throws DaoException, SQLException {
 		List<List<Pizza>> test = new ArrayList<List<Pizza>>();
 		try {
 			pizzas = Files.list(Paths.get(REPERTOIRE_DATA)).map(path -> {

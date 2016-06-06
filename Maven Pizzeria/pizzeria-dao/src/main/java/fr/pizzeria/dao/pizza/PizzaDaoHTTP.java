@@ -14,11 +14,14 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.model.Pizza;
 
-@Component
+@Repository
+@Transactional
 public class PizzaDaoHTTP implements IPizzaDao {
 	private Client client = ClientBuilder.newClient();
 	private WebTarget target = client.target("http://localhost:8080/pizzeria-admin-app");
@@ -49,7 +52,7 @@ public class PizzaDaoHTTP implements IPizzaDao {
 	}
 
 	@Override
-	public void importPizza() throws DaoException, SQLException {
+	public void importPizza(List<Pizza> pizzas) throws DaoException, SQLException {
 		// TODO Auto-generated method stub
 		
 	}

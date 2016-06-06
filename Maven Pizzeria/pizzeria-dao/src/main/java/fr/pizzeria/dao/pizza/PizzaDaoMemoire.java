@@ -13,6 +13,8 @@ import java.util.stream.Collectors;
 import org.apache.commons.collections4.ListUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.exception.DeletePizzaException;
@@ -21,7 +23,8 @@ import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
-@Component
+@Repository
+@Transactional
 public class PizzaDaoMemoire implements IPizzaDao {
 	
 	private Map<String, Pizza> pizzas = new HashMap<String, Pizza>();
@@ -85,10 +88,23 @@ public class PizzaDaoMemoire implements IPizzaDao {
 	}
 
 	@Override
-	public void importPizza() {
-		
-
-		
+	public void importPizza(List<Pizza> pizzas) throws DaoException {
+		Boolean test;
+		List<List<Pizza>> listPart = ListUtils.partition(pizzas, 3);
+		for(List<Pizza> list : listPart){
+			for(Pizza p  : list){
+				test = false;
+				if( this.findPizza(p.getCode()).getCode() != null){
+					test = true;
+				}
+				if(test){
+					throw new DaoException();
+				}
+			}
+			for (Pizza p : list){
+				savePizza(p);
+			}
+		}
 	}
 
 }

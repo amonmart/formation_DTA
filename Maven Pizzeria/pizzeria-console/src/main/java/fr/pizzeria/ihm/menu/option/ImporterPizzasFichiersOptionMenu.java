@@ -18,15 +18,8 @@ public class ImporterPizzasFichiersOptionMenu extends AbstractOptionMenu {
 	@Override
 	public boolean execute() {
 		System.out.println("Importer des pizza");
-		try {
-			pizzaDao.importPizza();
-		} catch (DaoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			//TODO Refaire l'import des pizzas
+			//pizzaDao.importPizza();
 		return true;
 	}
 

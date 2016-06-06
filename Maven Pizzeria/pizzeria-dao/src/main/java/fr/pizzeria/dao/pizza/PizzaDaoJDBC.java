@@ -12,6 +12,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import fr.pizzeria.exception.DaoException;
 import fr.pizzeria.exception.DeletePizzaException;
@@ -20,7 +22,8 @@ import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
-@Component
+@Repository
+@Transactional
 public class PizzaDaoJDBC implements IPizzaDao {
 
 	@Override
@@ -103,7 +106,7 @@ public class PizzaDaoJDBC implements IPizzaDao {
 		connection.close();
 	}
 	
-	public void importPizza() throws DaoException, SQLException{
+	public void importPizza(List<Pizza> pizzas) throws DaoException, SQLException{
 		/*
 		IPizzaDao pizzaDaoFichier = new PizzaDaoFichierImpl();
 		List<Pizza> pizzas = new ArrayList<>();
